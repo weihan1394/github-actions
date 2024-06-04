@@ -15,6 +15,10 @@ jobs:
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
+      - name: change working dir
+        working-directory: /home/runner
+        run: |
+          pwd
 
   display-wd-info-widndows:
     runs-on: ubuntu-latest
