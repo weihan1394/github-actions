@@ -13,3 +13,12 @@ jobs:
       - name: setting an warning message with params
         run: echo "::warning title:warning title, file=app.js,
           line=2,endline=3::Missing Semicolon"
+      - name: group of logs
+        run: |
+          echo "::group:: my group title"
+          echo "inside group"
+          echo "::engroup::"
+      - name: masking a value
+        run: "::add-mask::secret string"
+      - name: echo  a secret
+        run: echo "secret string"
