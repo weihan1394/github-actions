@@ -1,9 +1,17 @@
 name: manually triggered
 on:
   workflow_dispatch:
+    inputs:
+      string:
+        description: a string input
+        type: string
+        required: true
+        default: "default value"
 
 jobs:
   log-info:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $GITHUB_REF
+      - run: |
+          echo $GITHUB_REF
+          echov "String: ${{ inputs.string }}"
