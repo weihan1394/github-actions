@@ -11,3 +11,18 @@ jobs:
         run: |
           node -v
           npm -v
+
+  parallel-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check version
+        run: cat /etc/os-release
+
+  dependant-job:
+    runs-on: ubuntu-latest
+    needs: [run-shell-command]
+    steps:
+      - name: echo a string
+        run: echo "hello"
+      - name: error step
+        run: echo "error"
