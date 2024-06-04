@@ -14,4 +14,4 @@ jobs:
     steps:
       - run: |
           echo $GITHUB_REF
-          echov "String: ${{ inputs.string }}"
+          echo "String: ${{ inputs.string }}"
