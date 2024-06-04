@@ -26,3 +26,7 @@ jobs:
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
+      - name: run python shell
+        shell: python
+        run: |
+          print("hello")
