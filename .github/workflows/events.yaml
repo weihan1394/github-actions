@@ -1,5 +1,19 @@
 name: respository eventsss
-on: [push, pull_request, issues]
+# on: [push, pull_request, issues]
+on:
+  push:
+    branches:
+      - main
+      - "feature/*"
+      - "feature/**"
+      - "!feature/featA"
+      - develop
+    branches-ignore:
+      - "feature/featA"
+    paths:
+      - "**.js"
+  # pull_request:
+  #   types: [opened, assigned, reopened, synchronize]
 
 jobs:
   checkout-test:
