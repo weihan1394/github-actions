@@ -14,6 +14,7 @@ jobs:
 
   parallel-job:
     runs-on: ubuntu-latest
+    needs:
     steps:
       - name: check version
         run: cat /etc/os-release
@@ -25,4 +26,4 @@ jobs:
       - name: echo a string
         run: echo "hello"
       - name: error step
-        run: echo "error"
+        run: doesnotexists
