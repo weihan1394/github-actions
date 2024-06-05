@@ -23,9 +23,11 @@ jobs:
           - os: ubuntu-latest
             node-version: 14
       max-parallel: 2
-      fail-fast: false # prevent if error and stop working
+      fail-fast: true # prevent if error and stop working
     runs-on: ${{matrix.os}}
     steps:
+      - if: matrix.experimental == true
+        run: exit 1
       - run: node -v
       - run: echo '${{ toJson(matrix)}}'
       - uses: actions/setup-node@v4
