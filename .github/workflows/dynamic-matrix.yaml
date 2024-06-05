@@ -1,0 +1,39 @@
+name: dynamic matrix
+on:
+  workflow_dispatch:
+    inputs:
+      os:
+        description: operating system
+        default: "windows-latest,ubuntu-latest"
+        type: string
+      node-version:
+        description: node version
+        default: "14,15,16"
+        type: string
+
+jobs:
+  prepare-matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "step-output=value" >> $GITHUB_OUTPUT
+        id: step-1
+      - run: echo "step-output=value" >> $GITHUB_OUTPUT
+        id: step-2
+      - run: |
+          echo '${{steps.step-1.outputs.step-output}}'
+          echo '${{steps.step-2.outputs.step-output}}'
+  node-matrix:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node-version: [14, 15, 16]
+      max-parallel: 2
+      fail-fast: true # prevent if error and stop working
+    runs-on: ${{matrix.os}}
+    steps:
+      - run: node -v
+      - run: echo '${{ toJson(matrix)}}'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{matrix.node-version}}
+      - run: node -v
