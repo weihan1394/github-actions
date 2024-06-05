@@ -21,13 +21,18 @@ jobs:
           echo "JOB_LEVEL_ENV=$RANDOM" >> "$GITHUB_ENV"
       - name: multi line env
         run: |
-          DELIMITER=1234
-          echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
-          echo "Here is a joke:" >> "$GITHUB_ENV"
-          curl -s https://icanhazdadjoke.com/ >> "$GITHUB_ENV"
-          curl -s https://icanhazdadjoke.com/ >> "$GITHUB_ENV"
-          echo "" >> "$GITHUB_ENV"
-          echo "$DELIMITER" >> "$GITHUB_ENV"
+          {
+            echo RANDOM_JOKE<<EOF
+            curl -s https://icanhazdadjoke.com/
+            echo EOF 
+          } >> $GITHUB_ENV
+          # DELIMITER=1234
+          # echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
+          # echo "Here is a joke:" >> "$GITHUB_ENV"
+          # curl -s https://icanhazdadjoke.com/ >> "$GITHUB_ENV"
+          # curl -s https://icanhazdadjoke.com/ >> "$GITHUB_ENV"
+          # echo "" >> "$GITHUB_ENV"
+          # echo "$DELIMITER" >> "$GITHUB_ENV"
       - name: log custom env vars
         env:
           STEP_LEVEL_ENV: available to only this stepps
