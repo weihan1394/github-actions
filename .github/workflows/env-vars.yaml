@@ -21,10 +21,11 @@ jobs:
           echo "JOB_LEVEL_ENV=$RANDOM" >> "$GITHUB_ENV"
       - name: multi line env
         run: |
+          DELIMITER=1234
           {
-            echo 'RANDOM_JOKE<<EOF'
+            echo 'RANDOM_JOKE<<$DELIMITER'
             curl -s https://icanhazdadjoke.com/
-            echo EOF 
+            echo $DELIMITER 
           } >> "$GITHUB_ENV"
           # DELIMITER=1234
           # echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
