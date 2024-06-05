@@ -8,7 +8,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node-version: [14, 15, 16]
-        includes:
+        include:
           - os: ubuntu-latest
             is-ubuntu: true
           - os: macos-latest
