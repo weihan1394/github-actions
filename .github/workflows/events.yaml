@@ -8,8 +8,8 @@ on:
       - "feature/**"
       # - "!feature/featA"
       - develop
-    branches-ignore:
-      - "feature/featA"
+    # branches-ignore:
+    #   - "feature/featA"
     paths:
       - "**.js"
   # pull_request:
