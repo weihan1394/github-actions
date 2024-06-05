@@ -23,3 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: job-1
     if: failure()
+    steps:
+      - name: job 2
+        run: echo "job 2"
