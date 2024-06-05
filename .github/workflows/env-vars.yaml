@@ -25,7 +25,7 @@ jobs:
             echo 'RANDOM_JOKE<<EOF'
             curl -s https://icanhazdadjoke.com/
             echo EOF 
-          } >> $GITHUB_ENV
+          } >> "$GITHUB_ENV"
           # DELIMITER=1234
           # echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
           # echo "Here is a joke:" >> "$GITHUB_ENV"
