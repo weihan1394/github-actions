@@ -18,7 +18,7 @@ jobs:
       - name: set env var
         run: |
           echo "NEW_ENV_VAR=$(date)" >> "$GITHUB_ENV"
-          echo JOB_LEVEL_ENV=$RANOM" >> "GITHUB_ENV"
+          echo "JOB_LEVEL_ENV=$RANOM" >> "GITHUB_ENV"
       - name: log custom env vars
         env:
           STEP_LEVEL_ENV: available to only this stepps
