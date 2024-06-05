@@ -1,4 +1,4 @@
-name: respository eventsss
+name: respository events
 # on: [push, pull_request, issues]
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
       - "feature/*"
       - "feature/**"
-      - "!feature/featA"
+      # - "!feature/featA"
       - develop
     branches-ignore:
       - "feature/featA"
