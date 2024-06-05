@@ -11,6 +11,7 @@ on:
 jobs:
   log-info:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
     steps:
       - run: |
           echo $GITHUB_REF
