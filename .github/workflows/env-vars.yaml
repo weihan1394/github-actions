@@ -23,7 +23,7 @@ jobs:
         run: |
           {
             echo 'RANDOM_JOKE<<EOF'
-            curl -s https://icanhazdadjoke.com/
+            curl https://icanhazdadjoke.com/
             echo EOF
           } >> "$GITHUB_ENV"
           # DELIMITER=1234
