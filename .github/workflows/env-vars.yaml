@@ -22,7 +22,7 @@ jobs:
       - name: multi line env
         run: |
           {
-            echo 'JSON_RESPONSE<<EOF'
+            echo 'RANDOM_JOKE<<EOF'
             curl https://example.com
             echo EOF
           } >> "$GITHUB_ENV"
