@@ -1,4 +1,4 @@
-name: concurrency 2
+name: concurrency 1
 run-name: concurrency 1 ($${input.environment})
 on:
   workflow_dispatch:
