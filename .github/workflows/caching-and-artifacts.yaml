@@ -5,6 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: cache node modules
+        id: cache-dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: "npm-cache"
+      - name: display cache output
+        run: echo '${{ toJson(steps.cache-dependencies.outputs) }}'
       - name: install dependencies
         run: npm install
       - name: use axios
